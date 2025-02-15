@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
-import './transaction.css';
+import './transaction.css'
 
 interface Transaction {
   _id: string;
@@ -18,21 +18,29 @@ const Transactions = () => {
 
   const fetchTransactions = async () => {
     try {
-      console.log('Fetching transactions...');
-      const response = await fetch('https://nayepankh-foundation-f5er.onrender.com/api/donations/transactions', {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
+      const token = localStorage.getItem('token');
+      console.log('Token:', token);  // Log the token to see its value
 
-      if (!response.ok) {
-        console.error('Failed to fetch transactions:', response.statusText);
-        return;
+      const response = await fetch(
+        `https://nayepankh-foundation-f5er.onrender.com/api/donations/transactions?_=${new Date().getTime()}`, // Append a timestamp to bypass cache
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Cache-Control': 'no-cache',  // Prevent caching of the response
+          },
+        }
+      );
+
+      // Check if response is a valid JSON, otherwise log it for debugging
+      const textResponse = await response.text();
+      console.log('Response body:', textResponse); // Log the response body to see what's being returned
+
+      try {
+        const data = JSON.parse(textResponse); // Attempt to parse the JSON
+        setTransactions(data); // If valid, set the transactions
+      } catch (err) {
+        console.error('Error parsing JSON:', err); // Handle JSON parsing errors
       }
-
-      const data = await response.json();
-      console.log('Transactions fetched:', data); // Log the response data
-      setTransactions(data);
     } catch (error) {
       console.error('Error fetching transactions:', error);
     }
