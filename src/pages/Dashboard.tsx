@@ -25,7 +25,7 @@ const Dashboard = () => {
 
   const fetchUserData = async () => {
     try {
-      const response = await fetch('https://nayepankh-foundation-f5er.onrender.com/api/user/profile', {
+      const response = await fetch('http://localhost:10000//api/user/profile', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       const data = await response.json();
@@ -37,7 +37,7 @@ const Dashboard = () => {
 
   const fetchDonations = async () => {
     try {
-      const response = await fetch('https://nayepankh-foundation-f5er.onrender.com/api/donations/total', {
+      const response = await fetch('http://localhost:10000/api/donations/total', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       const data = await response.json();
