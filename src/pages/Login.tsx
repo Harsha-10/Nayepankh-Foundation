@@ -11,7 +11,7 @@ const Login = () => {
   const [user, setUser] = useState<any>(null);
   const fetchUserData = async () => {
     try {
-      const response = await fetch('http://localhost:10000/api/user/profile', {
+      const response = await fetch('https://nayepankh-foundation-f5er.onrender.com/api/user/profile', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -28,7 +28,7 @@ const Login = () => {
 
     setTimeout(async () => {
       try {
-        const response = await fetch('http://localhost:10000/api/auth/login', {
+        const response = await fetch('https://nayepankh-foundation-f5er.onrender.com/api/auth/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
