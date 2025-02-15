@@ -5,6 +5,8 @@ import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 dotenv.config();
 
 const app = express();
@@ -36,7 +38,12 @@ const donationSchema = new mongoose.Schema({
   referralCode: String,
   createdAt: { type: Date, default: Date.now }
 });
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+app.use(express.static(path.join(__dirname, '../dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../dist/index.html'));
+});
 const User = mongoose.model('User', userSchema);
 const Donation = mongoose.model('Donation', donationSchema);
 
