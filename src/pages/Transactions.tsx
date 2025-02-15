@@ -18,7 +18,7 @@ const Transactions = () => {
 
   const fetchTransactions = async () => {
     try {
-      const response = await fetch('https://nayepankh-foundation.vercel.app/api/donations/transactions', {
+      const response = await fetch('https://nayepankh-foundation-f5er.onrender.com/api/donations/transactions', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
