@@ -16,7 +16,7 @@ const DonationPage = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('https://nayepankh-foundation-f5er.onrender.com/api/donations/create', {
+      const response = await fetch('http://localhost:10000/api/donations/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
