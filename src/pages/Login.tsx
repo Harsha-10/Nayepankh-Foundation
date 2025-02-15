@@ -9,13 +9,15 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const [user, setUser] = useState<any>(null);
+  const token = localStorage.getItem('token')
   const fetchUserData = async () => {
     try {
       const response = await fetch('https://nayepankh-foundation-f5er.onrender.com/api/user/profile', {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          Authorization: `Bearer ${token}`,
         },
       });
+      console.log(token);
       const data = await response.json();
       setUser(data);
     } catch (error) {
