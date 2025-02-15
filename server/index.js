@@ -4,7 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
-
+import path from 'path';
 dotenv.config();
 
 const app = express();
@@ -22,6 +22,12 @@ const connection = async(url)=>{
 }
 connection(url)
 
+
+app.use(express.static(path.join(__dirname, '../dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../dist/index.html'));
+});
 const userSchema = new mongoose.Schema({
   name: String,
   email: { type: String, unique: true },
