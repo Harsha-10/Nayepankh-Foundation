@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
-import './transaction.css'
+import './transaction.css';
 
 interface Transaction {
   _id: string;
@@ -18,12 +18,20 @@ const Transactions = () => {
 
   const fetchTransactions = async () => {
     try {
+      console.log('Fetching transactions...');
       const response = await fetch('https://nayepankh-foundation-f5er.onrender.com/api/donations/transactions', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       });
+
+      if (!response.ok) {
+        console.error('Failed to fetch transactions:', response.statusText);
+        return;
+      }
+
       const data = await response.json();
+      console.log('Transactions fetched:', data); // Log the response data
       setTransactions(data);
     } catch (error) {
       console.error('Error fetching transactions:', error);
@@ -33,13 +41,13 @@ const Transactions = () => {
   return (
     <div className="flex min-h-screen bg-gray-50">
       <img className="logint" src="/public/logo.png" alt="Logo"
-                style={{
-                  width: "9%", 
-                  height:"9%",
-                  marginBottom:"4px",
-                  marginLeft:"16px",
-                  marginTop:"16px"
-                }}
+        style={{
+          width: "9%",
+          height: "9%",
+          marginBottom: "4px",
+          marginLeft: "16px",
+          marginTop: "16px"
+        }}
       />
       <Sidebar />
       <main className="flex-1 ml-64 p-8 bg-gray-100">
