@@ -22,12 +22,6 @@ const connection = async(url)=>{
 }
 connection(url)
 
-
-app.use(express.static(path.join(__dirname, '../dist')));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../dist/index.html'));
-});
 const userSchema = new mongoose.Schema({
   name: String,
   email: { type: String, unique: true },
