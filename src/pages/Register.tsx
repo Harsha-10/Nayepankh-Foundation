@@ -14,7 +14,7 @@ const Register = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('https://nayepankh-foundation-f5er.onrender.com/api/auth/register', {
+      const response = await fetch('http://localhost:10000/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
