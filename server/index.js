@@ -16,6 +16,12 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+app.use(express.static(path.join(__dirname, '../dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../dist/index.html'));
+});
 app.use(express.json());
 const url = `mongodb+srv://docsuser:docsuser123@cluster0.lb8gg2f.mongodb.net/fundraising?retryWrites=true&w=majority`
 const connection = async(url)=>{
