@@ -59,7 +59,7 @@ const Transactions = () => {
         }}
       />
       <Sidebar />
-      <main className="flex-1 ml-64 p-8 bg-gray-100">
+      <main className="flex-1 ml-24 p-8 bg-gray-100">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-extrabold text-gray-900 mb-8">Transactions</h1>
           
