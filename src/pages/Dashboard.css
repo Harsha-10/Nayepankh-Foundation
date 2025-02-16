@@ -247,7 +247,7 @@
 
 @media (min-width: 1500px) {
     .logo {
-        right: 27.5em; 
+        right: 26em; 
         width: 10%;
         top: 200px;
     }
@@ -255,7 +255,7 @@
     .header-quote {
         font-size: 44px;
         top: 380px;
-        padding-left: 300px;
+        padding-left: 120px;
         right: 40px;
     }
     .sidebar{
