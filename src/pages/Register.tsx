@@ -42,7 +42,7 @@ const Register = () => {
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-lg shadow-md p-8">
         <div className="text-center mb-8">
-        <img className="login" src="/public/logo.png" alt="Logo"
+        <img className="login" src="logo.png" alt="Logo"
                 style={{
                   width: "25%", 
                   margin: "0 auto",
