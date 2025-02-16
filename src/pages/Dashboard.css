@@ -246,15 +246,24 @@
 }
 @media (max-width: 1200px) {
     .logo {
-        right: 15em;
-        width: 12%;
+        right: 27.5em; 
+        width: 10%;
+        top: 200px;
     }
 
     .header-quote {
-        font-size: 28px;
-        top: 300px;
-        left: 30px;
-        right: 30px;
+        font-size: 44px;
+        top: 380px;
+        padding-left: 300px;
+        right: 40px;
+    }
+    .sidebar{
+        height: 25%;
+    }
+    .nav{
+        right:80px;
+        top:40px;
+        font-size:1.3em
     }
 }
 @media (min-width: 1890px) {
