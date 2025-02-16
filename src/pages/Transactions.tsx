@@ -22,7 +22,7 @@ const Transactions = () => {
       console.log('Token:', token);  // Log the token to see its value
 
       const response = await fetch(
-        `https://nayepankh-foundation-production-e02f.up.railway.app/api/donations/transactions?_=${new Date().getTime()}`, // Append a timestamp to bypass cache
+        `https://nayepankh-foundation-production-c5f6.up.railway.app/api/donations/transactions?_=${new Date().getTime()}`, // Append a timestamp to bypass cache
         {
           headers: {
             Authorization: `Bearer ${token}`,
