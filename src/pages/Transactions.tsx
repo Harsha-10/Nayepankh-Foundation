@@ -11,7 +11,7 @@ interface Transaction {
 
 const Transactions = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
-
+  
   useEffect(() => {
     fetchTransactions();
   }, []);
@@ -19,28 +19,29 @@ const Transactions = () => {
   const fetchTransactions = async () => {
     try {
       const token = localStorage.getItem('token');
-      console.log('Token:', token);  // Log the token to see its value
+      if (!token) {
+        console.error('No token found');
+        return;
+      }
 
       const response = await fetch(
-        `https://nayepankh-foundation-production-c5f6.up.railway.app/api/donations/transactions?_=${new Date().getTime()}`, // Append a timestamp to bypass cache
+        'https://nayepankh-foundation-production-c5f6.up.railway.app/api/donations/transactions',
         {
+          method: 'GET',
           headers: {
-            Authorization: `Bearer ${token}`,
-            'Cache-Control': 'no-cache',  // Prevent caching of the response
-          },
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-cache'
+          }
         }
       );
 
-      // Check if response is a valid JSON, otherwise log it for debugging
-      const textResponse = await response.text();
-      console.log('Response body:', textResponse); // Log the response body to see what's being returned
-
-      try {
-        const data = JSON.parse(textResponse); // Attempt to parse the JSON
-        setTransactions(data); // If valid, set the transactions
-      } catch (err) {
-        console.error('Error parsing JSON:', err); // Handle JSON parsing errors
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
+
+      const data = await response.json();
+      setTransactions(data);
     } catch (error) {
       console.error('Error fetching transactions:', error);
     }
