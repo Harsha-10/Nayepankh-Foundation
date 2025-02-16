@@ -12,7 +12,7 @@ const Login = () => {
   const token = localStorage.getItem('token')
   const fetchUserData = async () => {
     try {
-      const response = await fetch('https://nayepankh-foundation-f5er.onrender.com/api/user/profile', {
+      const response = await fetch('https://nayepankh-foundation-production.up.railway.app/api/user/profile', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -30,7 +30,7 @@ const Login = () => {
 
     setTimeout(async () => {
       try {
-        const response = await fetch('https://nayepankh-foundation-f5er.onrender.com/api/auth/login', {
+        const response = await fetch('https://nayepankh-foundation-production.up.railway.app/api/auth/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
