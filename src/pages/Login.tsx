@@ -71,7 +71,7 @@ const Login = () => {
           transition={{ duration: 1 }}
         >
           <div className="text-center mb-8">
-            <img className="login" src="/public/logo.png" alt="Logo"
+            <img className="login" src="logo.png" alt="Logo"
                 style={{
                   width: "25%", 
                   margin: "0 auto",
