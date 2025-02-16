@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: 'https://nayepankh-foundation-f5er.onrender.com',
+  origin: 'https://nayepankh-foundation-production-e02f.up.railway.app/',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
