@@ -14,7 +14,7 @@ const Register = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('https://nayepankh-foundation-production-e02f.up.railway.app/api/auth/register', {
+      const response = await fetch('https://nayepankh-foundation-production-c5f6.up.railway.app/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
