@@ -13,9 +13,22 @@ const app = express();
 
 app.use(cors({
   origin: 'https://nayepankh-foundation-gp8b.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: [
+    'Content-Type', 
+    'Authorization',
+    'X-Requested-With',
+    'Accept',
+    'Origin',
+    'Cache-Control',
+    'If-None-Match',
+    'ETag'
+  ],
+  exposedHeaders: ['ETag'],
+  credentials: true
 }));
+
+app.options('*', cors());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 app.use(express.static(path.join(__dirname, '../dist')));
