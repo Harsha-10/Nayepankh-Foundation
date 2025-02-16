@@ -26,7 +26,7 @@ const Dashboard = () => {
   const token = localStorage.getItem('token')
   const fetchUserData = async () => {
     try {
-      const response = await fetch('https://nayepankh-foundation-production-e02f.up.railway.app//api/user/profile', {
+      const response = await fetch('https://nayepankh-foundation-production-c5f6.up.railway.app/api/user/profile', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -41,7 +41,7 @@ const Dashboard = () => {
 
   const fetchDonations = async () => {
     try {
-      const response = await fetch('https://nayepankh-foundation-production-e02f.up.railway.app/api/donations/total', {
+      const response = await fetch('https://nayepankh-foundation-production-c5f6.up.railway.app/api/donations/total', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       const data = await response.json();
