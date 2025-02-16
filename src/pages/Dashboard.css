@@ -256,6 +256,7 @@
         left: 30px;
         right: 30px;
     }
+}
 @media (min-width: 1890px) {
     .logo {
         right: 27.5em; 
