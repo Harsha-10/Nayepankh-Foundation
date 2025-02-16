@@ -244,8 +244,6 @@
 .share-btn:hover {
     transform: scale(1.05);
 }
-
-/* Responsive Styles */
 @media (max-width: 1200px) {
     .logo {
         right: 15em;
@@ -259,6 +257,30 @@
         right: 30px;
     }
 }
+@media (min-width: 1890px) {
+    .logo {
+        right: 15em;
+        width: 12%;
+    }
+
+    .header-quote {
+        font-size: 36px; 
+        max-width: 70%; 
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        line-height: 1.4; 
+        font-weight: bold;
+    }
+
+    .header-quote::after {
+        content: "\A";
+        white-space: pre;
+    }
+}
+
 
 @media (max-width: 768px) {
     .nav {
