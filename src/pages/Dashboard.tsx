@@ -105,7 +105,7 @@ const Dashboard = () => {
               <div><Link to="/transactions">Transactions</Link></div>
               <div><button onClick={handleLogout}>Logout</button></div>
             </div>
-            <img className="logo" src="/public/logo.png" alt="Logo"/>
+            <img className="logo" src="logo.png" alt="Logo"/>
             <h1 className="header-quote">"Every child deserves a chance to dream, grow, and succeed."</h1>
           </div>
         </motion.div>
