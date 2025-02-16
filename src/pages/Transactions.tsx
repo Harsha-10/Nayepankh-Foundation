@@ -49,7 +49,7 @@ const Transactions = () => {
 
   return (
     <div className="flex min-h-screen bg-gray-50">
-      <img className="logint" src="/public/logo.png" alt="Logo"
+      <img className="logint" src="logo.png" alt="Logo"
         style={{
           width: "9%",
           height: "9%",
